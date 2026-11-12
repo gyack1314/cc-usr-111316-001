@@ -1,0 +1,81 @@
+{
+  "kind": "mrio",
+  "sectors": [
+    "north-equipment",
+    "south-power",
+    "empty"
+  ],
+  "destinations": [
+    "north",
+    "south"
+  ],
+  "Z": [
+    [
+      "0",
+      "20",
+      "0"
+    ],
+    [
+      "20",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "0"
+    ]
+  ],
+  "x": [
+    "100",
+    "80",
+    "0"
+  ],
+  "Y": [
+    [
+      "60",
+      "20"
+    ],
+    [
+      "30",
+      "30"
+    ],
+    [
+      "0",
+      "0"
+    ]
+  ],
+  "f": [
+    "10",
+    "20",
+    "1"
+  ],
+  "currency_unit": "synthetic-unit",
+  "extraction_cells": [
+    [
+      0,
+      1
+    ]
+  ],
+  "direction": [
+    [
+      "0",
+      "1",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "0"
+    ]
+  ],
+  "numeric_policy": {
+    "rational_or_residual_tolerance": "1/1000000000",
+    "condition_limit": 100000000
+  }
+}

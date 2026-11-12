@@ -1,0 +1,57 @@
+{
+  "kind": "mrio",
+  "sectors": [
+    "a",
+    "b"
+  ],
+  "destinations": [
+    "d"
+  ],
+  "Z": [
+    [
+      "0",
+      "999999"
+    ],
+    [
+      "999999",
+      "0"
+    ]
+  ],
+  "x": [
+    "1000000",
+    "1000000"
+  ],
+  "Y": [
+    [
+      "1"
+    ],
+    [
+      "1"
+    ]
+  ],
+  "f": [
+    "1",
+    "1"
+  ],
+  "currency_unit": "synthetic-unit",
+  "extraction_cells": [
+    [
+      0,
+      1
+    ]
+  ],
+  "direction": [
+    [
+      "0",
+      "1"
+    ],
+    [
+      "0",
+      "0"
+    ]
+  ],
+  "numeric_policy": {
+    "rational_or_residual_tolerance": "1/1000000000",
+    "condition_limit": 10000
+  }
+}
