@@ -1,0 +1,322 @@
+{
+  "kind": "mrio-analysis",
+  "manifest_sha256": "ad4468e0e6cb2b9fcbc57a052bbb9bd0eae337ab24dc0c1caa2f7fd9c26470e6",
+  "disclaimer": "隐含排放核算与结构反事实结果，非因果预测，不构成政策评价或投资建议。",
+  "currency_unit": "synthetic-unit",
+  "sector_mapping": [
+    {
+      "index": 0,
+      "id": "north-equipment",
+      "kept": true,
+      "kept_index": 0
+    },
+    {
+      "index": 1,
+      "id": "south-power",
+      "kept": true,
+      "kept_index": 1
+    },
+    {
+      "index": 2,
+      "id": "empty",
+      "kept": false,
+      "reason": "零产出且交易、最终需求、排放全零，剔除并保留映射"
+    }
+  ],
+  "accounting": {
+    "rule": "每个供给部门 rowsum(Z)+rowsum(Y)==x（精确有理数判定）",
+    "discrepancies": {
+      "north-equipment": "0",
+      "south-power": "0",
+      "empty": "0"
+    }
+  },
+  "solver": "exact-rational(Fraction)",
+  "solve_evidence": {
+    "spectral_radius_row_sum_bounds": [
+      "1/5",
+      "1/4"
+    ],
+    "spectral_radius_estimate": 0.2,
+    "hawkins_simon_pivots": [
+      "1",
+      "19/20"
+    ],
+    "leontief_nonnegative": true,
+    "condition_number_1": "125/76",
+    "condition_number_1_float": 1.644736842105263,
+    "residual_max_abs": "0",
+    "leontief_inverse": [
+      [
+        "20/19",
+        "5/19"
+      ],
+      [
+        "4/19",
+        "20/19"
+      ]
+    ],
+    "A": [
+      [
+        "0",
+        "1/4"
+      ],
+      [
+        "1/5",
+        "0"
+      ]
+    ],
+    "condition_limit": "100000000",
+    "tolerance": "1/1000000000"
+  },
+  "status": "ok",
+  "blocks": [],
+  "responsibilities": {
+    "direct_intensity": {
+      "north-equipment": "1/10",
+      "south-power": "1/4"
+    },
+    "per_destination": {
+      "north": {
+        "requirement": {
+          "north-equipment": "1350/19",
+          "south-power": "840/19"
+        },
+        "by_sector": {
+          "north-equipment": "135/19",
+          "south-power": "210/19"
+        },
+        "total": "345/19",
+        "direct": "27/2",
+        "indirect": "177/38"
+      },
+      "south": {
+        "requirement": {
+          "north-equipment": "550/19",
+          "south-power": "680/19"
+        },
+        "by_sector": {
+          "north-equipment": "55/19",
+          "south-power": "170/19"
+        },
+        "total": "225/19",
+        "direct": "19/2",
+        "indirect": "89/38"
+      }
+    },
+    "layers": {
+      "north": {
+        "increments": [
+          "27/2",
+          "15/4",
+          "27/40",
+          "3/16",
+          "27/800",
+          "3/320",
+          "27/16000",
+          "3/6400"
+        ],
+        "remainder": "69/608000"
+      },
+      "south": {
+        "increments": [
+          "19/2",
+          "7/4",
+          "19/40",
+          "7/80",
+          "19/800",
+          "7/1600",
+          "19/16000",
+          "7/32000"
+        ],
+        "remainder": "9/121600"
+      }
+    },
+    "grand_total": "30",
+    "note": "总足迹 g·L·Y 已含全部层级；直接+间接为互补分解；层级序列为增量，不可把各层总乘数重复累加（重复归算）。",
+    "emissions_conservation": {
+      "grand_total": "30",
+      "sum_direct_emissions_kept": "30",
+      "consistent": true
+    }
+  },
+  "scenario": {
+    "type": "extraction",
+    "cells": [
+      [
+        0,
+        1
+      ]
+    ],
+    "interpretation": "登记的A单元置零：假设该中间投入被无排放替代；其余A、直接强度、最终需求固定。结构反事实，非因果预测；不要求情景满足原会计恒等式。",
+    "evidence": {
+      "spectral_radius_row_sum_bounds": [
+        "0",
+        "1/5"
+      ],
+      "spectral_radius_estimate": 0.0,
+      "hawkins_simon_pivots": [
+        "1",
+        "1"
+      ],
+      "leontief_nonnegative": true,
+      "condition_number_1": "36/25",
+      "condition_number_1_float": 1.44,
+      "residual_max_abs": "0",
+      "leontief_inverse": [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "1/5",
+          "1"
+        ]
+      ]
+    },
+    "status": "ok",
+    "per_destination": {
+      "north": {
+        "before": "345/19",
+        "after": "33/2",
+        "delta": "-63/38",
+        "requirement_before": {
+          "north-equipment": "1350/19",
+          "south-power": "840/19"
+        },
+        "requirement_after": {
+          "north-equipment": "60",
+          "south-power": "42"
+        }
+      },
+      "south": {
+        "before": "225/19",
+        "after": "21/2",
+        "delta": "-51/38",
+        "requirement_before": {
+          "north-equipment": "550/19",
+          "south-power": "680/19"
+        },
+        "requirement_after": {
+          "north-equipment": "20",
+          "south-power": "34"
+        }
+      }
+    },
+    "grand_total": {
+      "before": "30",
+      "after": "27",
+      "delta": "-3"
+    }
+  },
+  "derivative": {
+    "definition": "A(t)=A+t·D，t=0 处方向导数；直接强度与最终需求固定。elasticity_per_unit_t=(1/F)·dF/dt，为对扰动参数t的半弹性。",
+    "per_destination": {
+      "north": {
+        "dF_dt": "2520/361",
+        "elasticity_per_unit_t": "168/437"
+      },
+      "south": {
+        "dF_dt": "2040/361",
+        "elasticity_per_unit_t": "136/285"
+      }
+    },
+    "grand_total_dF_dt": "240/19",
+    "feasible_interval_nonnegative": [
+      "-1/4",
+      null
+    ],
+    "fd_verification": {
+      "steps": [
+        {
+          "h": "1/10",
+          "plus_feasible": true,
+          "minus_feasible": true,
+          "mode": "central",
+          "quotients": {
+            "north": "21000/3007",
+            "south": "17000/3007"
+          },
+          "abs_error_vs_analytic": {
+            "north": "3360/1085527",
+            "south": "2720/1085527"
+          }
+        },
+        {
+          "h": "1/100",
+          "plus_feasible": true,
+          "minus_feasible": true,
+          "mode": "central",
+          "quotients": {
+            "north": "9375/1343",
+            "south": "3125/553"
+          },
+          "abs_error_vs_analytic": {
+            "north": "15/484823",
+            "south": "5/199633"
+          }
+        },
+        {
+          "h": "1/1000",
+          "plus_feasible": true,
+          "minus_feasible": true,
+          "mode": "central",
+          "quotients": {
+            "north": "52500000/7520833",
+            "south": "42500000/7520833"
+          },
+          "abs_error_vs_analytic": {
+            "north": "840/2715020713",
+            "south": "680/2715020713"
+          }
+        },
+        {
+          "h": "1/10000",
+          "plus_feasible": true,
+          "minus_feasible": true,
+          "mode": "central",
+          "quotients": {
+            "north": "5250000000/752083333",
+            "south": "4250000000/752083333"
+          },
+          "abs_error_vs_analytic": {
+            "north": "840/271502083213",
+            "south": "680/271502083213"
+          }
+        },
+        {
+          "h": "1/100000",
+          "plus_feasible": true,
+          "minus_feasible": true,
+          "mode": "central",
+          "quotients": {
+            "north": "75000000000/10744047619",
+            "south": "425000000000/75208333333"
+          },
+          "abs_error_vs_analytic": {
+            "north": "120/3878601190459",
+            "south": "680/27150208333213"
+          }
+        },
+        {
+          "h": "1/1000000",
+          "plus_feasible": true,
+          "minus_feasible": true,
+          "mode": "central",
+          "quotients": {
+            "north": "52500000000000/7520833333333",
+            "south": "42500000000000/7520833333333"
+          },
+          "abs_error_vs_analytic": {
+            "north": "840/2715020833333213",
+            "south": "680/2715020833333213"
+          }
+        }
+      ],
+      "tolerance": "1/1000000000",
+      "finest_feasible_h": "1/1000000",
+      "valid": true,
+      "note": null
+    }
+  }
+}

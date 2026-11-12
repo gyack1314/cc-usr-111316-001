@@ -1,0 +1,72 @@
+{
+  "kind": "mrio-analysis",
+  "manifest_sha256": "82b60ea187f29de56b46685cb55dfd351af92699cd937e1d23db782e6ed91055",
+  "disclaimer": "隐含排放核算与结构反事实结果，非因果预测，不构成政策评价或投资建议。",
+  "currency_unit": "synthetic-unit",
+  "sector_mapping": [
+    {
+      "index": 0,
+      "id": "a",
+      "kept": true,
+      "kept_index": 0
+    },
+    {
+      "index": 1,
+      "id": "b",
+      "kept": true,
+      "kept_index": 1
+    }
+  ],
+  "accounting": {
+    "rule": "每个供给部门 rowsum(Z)+rowsum(Y)==x（精确有理数判定）",
+    "discrepancies": {
+      "a": "0",
+      "b": "0"
+    }
+  },
+  "solver": "exact-rational(Fraction)",
+  "solve_evidence": {
+    "spectral_radius_row_sum_bounds": [
+      "999999/1000000",
+      "999999/1000000"
+    ],
+    "spectral_radius_estimate": 0.999999,
+    "hawkins_simon_pivots": [
+      "1",
+      "1999999/1000000000000"
+    ],
+    "leontief_nonnegative": true,
+    "condition_number_1": "1999999",
+    "condition_number_1_float": 1999999.0,
+    "residual_max_abs": "0",
+    "leontief_inverse": [
+      [
+        "1000000000000/1999999",
+        "999999000000/1999999"
+      ],
+      [
+        "999999000000/1999999",
+        "1000000000000/1999999"
+      ]
+    ],
+    "A": [
+      [
+        "0",
+        "999999/1000000"
+      ],
+      [
+        "999999/1000000",
+        "0"
+      ]
+    ],
+    "condition_limit": "10000",
+    "tolerance": "1/1000000000"
+  },
+  "status": "blocked",
+  "blocks": [
+    "条件数 1999999 超过上限 10000，矩阵近奇异"
+  ],
+  "responsibilities": null,
+  "scenario": null,
+  "derivative": null
+}
